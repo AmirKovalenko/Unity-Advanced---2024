@@ -2347,6 +2347,10 @@ PrefabInstance:
       propertyPath: m_AngularSpeed
       value: 300
       objectReference: {fileID: 0}
+    - target: {fileID: 8829214200704023972, guid: bb90c231286b8d343837c4161b671108, type: 3}
+      propertyPath: m_WalkableMask
+      value: 29
+      objectReference: {fileID: 0}
     - target: {fileID: 9217616632733818046, guid: bb90c231286b8d343837c4161b671108, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.74
@@ -2427,7 +2431,7 @@ PrefabInstance:
       objectReference: {fileID: 1267789876}
     - target: {fileID: 8829214200704023972, guid: bb90c231286b8d343837c4161b671108, type: 3}
       propertyPath: m_Speed
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8829214200704023972, guid: bb90c231286b8d343837c4161b671108, type: 3}
       propertyPath: m_Radius
@@ -2435,7 +2439,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8829214200704023972, guid: bb90c231286b8d343837c4161b671108, type: 3}
       propertyPath: m_AngularSpeed
-      value: 300
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829214200704023972, guid: bb90c231286b8d343837c4161b671108, type: 3}
+      propertyPath: m_WalkableMask
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 9217616632733818046, guid: bb90c231286b8d343837c4161b671108, type: 3}
       propertyPath: m_LocalPosition.x

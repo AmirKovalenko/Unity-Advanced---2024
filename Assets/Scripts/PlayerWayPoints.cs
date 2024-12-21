@@ -3,7 +3,6 @@ using UnityEngine.AI;
 
 public class PlayerWayPoints : MonoBehaviour
 {
-
     private const int mudAreaID = 3;
     private bool hasSpecialTevaNaot = true;
 
@@ -45,4 +44,5 @@ public class PlayerWayPoints : MonoBehaviour
             navMeshAgent.SetDestination(pathWaypoints[currentWaypointIndex].position);
         }
     }
+
 }

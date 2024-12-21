@@ -1,12 +1,21 @@
 using UnityEngine;
 using Unity.AI.Navigation;
+using TMPro;
+
 
 public class SetMudArea : MonoBehaviour
 {
-    [SerializeField] GameObject trapVisual;
-    [SerializeField] GameObject mudArea;
-    [SerializeField] GameObject[] mudLocations;
     NavMeshSurface navMeshSurface;
+    [SerializeField] GameObject[] mudLocations;
+    [SerializeField] GameObject mudArea;
+    [SerializeField] GameObject obstaclesA;
+    [SerializeField] GameObject obstaclesB;
+
+    public TextMeshProUGUI textMesh;
+    [HideInInspector] public int a = 0;
+    [HideInInspector] public int b = 0;
+    [HideInInspector] public float textTimer = 0f;
+
 
     private void Start()
     {
@@ -14,22 +23,47 @@ public class SetMudArea : MonoBehaviour
         navMeshSurface = FindFirstObjectByType<NavMeshSurface>();
     }
 
+    private void Update()
+    {
+        if (textTimer > 0)
+        {
+            textTimer -= Time.deltaTime;
+            if (textTimer < 0)
+                TurnOffText();
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         mudArea.SetActive(true);
-        Debug.Log("activated mud zone");
-
-        if (mudArea.transform.position != mudLocations[0].transform.position)  //set Mud on Point A location
+        if (other.CompareTag("Player A"))
         {
-            mudArea.transform.position = mudLocations[0].transform.position;
-            Debug.Log("Mud on Point A");
+            SetObstaclesOnSideA();
         }
-        else if (mudArea.transform.position != mudLocations[1].transform.position)  //set mud on Point B location
+        else if (other.CompareTag("Player B"))
         {
-            mudArea.transform.position = mudLocations[1].transform.position;
-            Debug.Log("Mud on Point B");
+            SetObstaclesOnSideB();
         }
         navMeshSurface.BuildNavMesh();
+    }
+    private void SetObstaclesOnSideA() //set obstacles on Point A location
+    {
+        mudArea.transform.position = mudLocations[0].transform.position;
+        obstaclesA.SetActive(true);
+        obstaclesB.SetActive(false);
+        Debug.Log("obstacles on Point A");
+    }
 
+    private void SetObstaclesOnSideB() //set obstacles on Point B location
+    {
+        mudArea.transform.position = mudLocations[1].transform.position;
+        obstaclesA.SetActive(false);
+        obstaclesB.SetActive(true);
+        Debug.Log("obstacles on Point B");
+    }
+
+    private void TurnOffText()
+    {
+        textMesh.text = " ";
     }
 }
