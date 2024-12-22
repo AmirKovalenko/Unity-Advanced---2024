@@ -12,11 +12,11 @@ NavMeshProjectSettings:
   - name: Jump
     cost: 2
   - name: Mud
-    cost: 4
-  - name: Trap
     cost: 3
-  - name: 
-    cost: 1
+  - name: Trap
+    cost: 2
+  - name: Spikes
+    cost: 6
   - name: 
     cost: 1
   - name: 
