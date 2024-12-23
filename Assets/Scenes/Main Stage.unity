@@ -586,7 +586,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 53cab5e48e4e44f4a93b8a92ec6058ae, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: a6aaa22e2cd3c7e4d9a9de6262e945f8, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &140441356
 Transform:
@@ -2229,7 +2229,7 @@ Transform:
   m_GameObject: {fileID: 1056975347}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.65, y: 0.002, z: -6.25}
+  m_LocalPosition: {x: -9.41, y: 0.002, z: 3.74}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2471,7 +2471,7 @@ Transform:
   m_GameObject: {fileID: 1153200781}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.94, y: 0, z: -14.63}
+  m_LocalPosition: {x: -11.66, y: 0, z: -9.01}
   m_LocalScale: {x: 4.7795, y: 2.4577847, z: 1.7587343}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4509,8 +4509,12 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8829214200704023972, guid: bb90c231286b8d343837c4161b671108, type: 3}
+      propertyPath: m_AutoBraking
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829214200704023972, guid: bb90c231286b8d343837c4161b671108, type: 3}
       propertyPath: m_AngularSpeed
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8829214200704023972, guid: bb90c231286b8d343837c4161b671108, type: 3}
       propertyPath: m_WalkableMask
