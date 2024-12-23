@@ -36,6 +36,7 @@ public class SetMudArea : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         mudArea.SetActive(true);
+
         if (other.CompareTag("Player A"))
         {
             SetObstaclesOnSideA();

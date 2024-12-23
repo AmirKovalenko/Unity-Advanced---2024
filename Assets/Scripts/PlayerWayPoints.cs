@@ -34,7 +34,7 @@ public class PlayerWayPoints : MonoBehaviour
         {
             navMeshAgent.SetDestination(target.position);
         }
-        else if (!navMeshAgent.isStopped && navMeshAgent.remainingDistance <= 1.5f)
+        else if (!navMeshAgent.isStopped && navMeshAgent.remainingDistance <= 1.0f)
         {
             currentWaypointIndex++;
             if (currentWaypointIndex >= pathWaypoints.Length)
