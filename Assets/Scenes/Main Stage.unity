@@ -744,7 +744,7 @@ GameObject:
   - component: {fileID: 223056088}
   - component: {fileID: 223056087}
   m_Layer: 0
-  m_Name: Side A Text
+  m_Name: Wall Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1630,7 +1630,7 @@ GameObject:
   - component: {fileID: 524035401}
   - component: {fileID: 524035400}
   m_Layer: 0
-  m_Name: Trap A
+  m_Name: Trap Avoidable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
