@@ -1,15 +1,15 @@
 using UnityEngine;
 
-public class FakePlayerMovement : MonoBehaviour
+public class PlayerCharacterController : MonoBehaviour
 {
-    public GameObject player;
+    public GameObject playerGO;
 
     void Update()
     {
         TempMovement();
     }
 
-    private void TempMovement()
+    private void TempMovement()  
     {
         if (Input.GetKey(KeyCode.W))
         {
@@ -28,4 +28,5 @@ public class FakePlayerMovement : MonoBehaviour
             gameObject.GetComponent<Rigidbody>().AddForce(5, 0, 0);
         }
     }
+
 }
