@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    PlayerCharacterController playerCharController;
+    TempMovement playerRef;
     [SerializeField] TextMeshProUGUI playerHPText;
     int playerHP = 100;
 
     void Start()
     {
-        playerCharController = FindFirstObjectByType<PlayerCharacterController>();
+        playerRef = FindFirstObjectByType<TempMovement>();
         RefreshHPText();
     }
     
@@ -23,7 +23,7 @@ public class UIManager : MonoBehaviour
 
         if (playerHP < 0) 
         {
-            playerCharController.playerGO.SetActive(false);
+            playerRef.playerGO.SetActive(false);
             Debug.Log("u died lol");
         }
     }
