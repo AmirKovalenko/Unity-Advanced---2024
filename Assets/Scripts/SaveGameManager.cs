@@ -1,15 +1,19 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 using UnityEngine;
 
-[System.Serializable] //can view in inspector debug mode
 public class SaveGameManager : MonoBehaviour
 {
-    const string SAVE_FILE_NAME = "/Save.dat";
-    [SerializeField] GameManager gameManager;
-    [SerializeField] UIManager uiManager;
+    private const string SAVE_FILE_NAME = "/Save.dat";
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private UIManager uiManager;
 
-    SerializedSaveGame serializedSaveGame;
+    private SerializedSaveGame serializedSaveGame;
 
-    [ContextMenu("SAVE!")]
+    [ContextMenu("Save!")]
     public void SaveGame()
     {
         serializedSaveGame = new SerializedSaveGame();
@@ -26,13 +30,66 @@ public class SaveGameManager : MonoBehaviour
         //serializedSaveGame.playerHP = gameManager.playerCharacterController.Hp;
         //serializedSaveGame.currentWaypointIndex = gameManager.playerCharacterController.CurrentWaypointIndex;
 
-        //     SaveToJson();
-        //SaveToBinary();
+        SaveToJson();
+        //   SaveToBinary();
     }
 
-    [ContextMenu("LOAD!")]
+    [ContextMenu("Load!")]
     public void LoadGame()
     {
+        LoadFromJson();
 
+        //    LoadFromBinary();
+
+        // gameManager.playerCharacterController.transform.position = serializedSaveGame.playerPosition;
+        // gameManager.playerCharacterController.transform.eulerAngles = serializedSaveGame.playerRotation;
+        gameManager.playerCharacterController.transform.position = new Vector3
+            (serializedSaveGame.playerPositionX, serializedSaveGame.playerPositionY,
+            serializedSaveGame.playerPositionZ);
+        gameManager.playerCharacterController.transform.eulerAngles = new Vector3
+            (serializedSaveGame.playerRotationX,serializedSaveGame.playerRotationY, 
+            serializedSaveGame.playerRotationZ);
+        //gameManager.playerCharacterController.Hp = serializedSaveGame.playerHP;
+        //gameManager.playerCharacterController.CurrentWaypointIndex = serializedSaveGame.currentWaypointIndex;
+        ////
+        //uiManager.RefreshHPText(gameManager.playerCharacterController.Hp);
+        //gameManager.playerCharacterController.SetDestination
+        //(gameManager.playerCharacterController.CurrentWaypointIndex);
+    }
+
+    private void SaveToJson()
+    {
+        string jsonString = JsonUtility.ToJson(serializedSaveGame, true);
+
+        File.WriteAllText(Application.persistentDataPath + SAVE_FILE_NAME, jsonString);
+    }
+
+    private void LoadFromJson()
+    {
+        string jsonString = File.ReadAllText(Application.persistentDataPath + SAVE_FILE_NAME);
+        serializedSaveGame = JsonUtility.FromJson<SerializedSaveGame>(jsonString);
+    }
+
+    private void SaveToBinary()
+    {
+        FileStream fileStream = new FileStream(Application.persistentDataPath +
+            SAVE_FILE_NAME, FileMode.Create);
+        BinaryFormatter converter = new BinaryFormatter();
+        converter.Serialize(fileStream, serializedSaveGame);
+        fileStream.Close();
+    }
+
+    private void LoadFromBinary()
+    {
+        if (File.Exists(Application.persistentDataPath + SAVE_FILE_NAME))
+        {
+            FileStream fileStream = new FileStream(Application.persistentDataPath +
+                SAVE_FILE_NAME, FileMode.Open);
+
+            BinaryFormatter converter = new BinaryFormatter();
+            serializedSaveGame = converter.Deserialize(fileStream) as SerializedSaveGame;
+
+            fileStream.Close();
+        }
     }
 }
