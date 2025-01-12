@@ -103,4 +103,11 @@ public class PlayerCharacterController : MonoBehaviour
             SetDestination(pathWaypoints[currentWaypointIndex]);
         }
     }
+
+    private void PlayFootStepSound()
+    {
+
+    }
+
+
 }
