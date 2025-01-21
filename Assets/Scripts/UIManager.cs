@@ -13,12 +13,19 @@ public class UIManager : MonoBehaviour
     public void RefreshHPText(int newHP)
     {
         hpText.text = newHP.ToString();
+        
+    }
+
+    private void Awake()
+    {
+        playerRef.onTakeDamageEventAction += RefreshHPText; //Unity action
     }
 
     private void Start()
     {
         hpText.text = playerRef.Hp.ToString();
         playerRef.onTakeDamageEvent.AddListener(RefreshHPText);
+
     }
 
 

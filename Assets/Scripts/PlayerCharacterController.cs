@@ -51,8 +51,9 @@ public class PlayerCharacterController : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
-        Hp -= damageAmount;
+        hp -= damageAmount;
         onTakeDamageEvent.Invoke(hp);
+        onTakeDamageEventAction.Invoke(hp);
     }
 
     [ContextMenu("Take Damage Test")]
@@ -63,6 +64,7 @@ public class PlayerCharacterController : MonoBehaviour
 
     private void Start()
     {
+        onTakeDamageEvent.AddListener(onTakeDamageEventAction);  //add the unity action into the unity event list
         SetMudAreaCost();
         ToggleMoving(true);
         SetDestination(pathWaypoints[0]);

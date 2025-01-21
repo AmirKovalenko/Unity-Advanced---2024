@@ -17,7 +17,10 @@ public class FireHazard : MonoBehaviour
     }
     private void Start()
     {
-        onCharacterEntered.AddListener(onCharacterEnteredAction);
+        if (onCharacterEnteredAction != null)
+        {
+            onCharacterEntered.AddListener(onCharacterEnteredAction);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -36,7 +39,7 @@ public class FireHazard : MonoBehaviour
     }
 }
 
-public class FireEnteredEventArgs
+public struct FireEnteredEventArgs
 {
     public int damageDealt;
     public PlayerCharacterController targetCharacterController;
