@@ -1,35 +1,25 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    PlayerCharacterController playerRef;
-    [SerializeField] TextMeshProUGUI playerHPText;
-    int playerHP = 100;
+    public TextMeshProUGUI hpText;
 
-    void Start()
+    [SerializeField] private PlayerCharacterController playerRef;
+
+    public void RefreshHPText(int newHP)
     {
-        playerRef = FindFirstObjectByType<PlayerCharacterController>();
-        RefreshHPText();
-    }
-    
-    public void TakeDamage(int damageAmount)
-    {
-        playerHP -= damageAmount;
-        RefreshHPText();
-
-        //onTakeDamageEvent.Invoke(playerHP);
-        //onTakeDamageEventAction.Invoke(playerHP);
-
-        if (playerHP < 0) 
-        {
-            //playerRef.playerGO.SetActive(false);
-            Debug.Log("u died lol");
-        }
+        hpText.text = newHP.ToString();
     }
 
-    public void RefreshHPText()
+    private void Start()
     {
-        playerHPText.text = playerHP.ToString();
+        hpText.text = playerRef.Hp.ToString();
+        playerRef.onTakeDamageEvent.AddListener(RefreshHPText);
     }
+
+
 }

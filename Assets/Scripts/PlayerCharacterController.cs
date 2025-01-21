@@ -11,35 +11,26 @@ using UnityEngine.Serialization;
 public class PlayerCharacterController : MonoBehaviour
 {
     public event UnityAction<int> onTakeDamageEventAction;
-    [SerializeField] private UnityEvent<int> onTakeDamageEvent;
+    public UnityEvent<int> onTakeDamageEvent;
 
     [Header("Navigation")]
     [SerializeField] private NavMeshAgent navMeshAgent;
-
-    [SerializeField] private Transform waypoint;
     [SerializeField] private Transform[] pathWaypoints;
-
-    [SerializeField] Animator animator;
 
     public int Hp
     {
         get => hp;
         set => hp = value;
     }
-
+    private int hp = 100;
     public int CurrentWaypointIndex
     {
         get => currentWaypointIndex;
         set => currentWaypointIndex = value;
     }
-
-    private bool isMoving = true;
     private int currentWaypointIndex = 0;
-
+    private bool isMoving = true;
     private bool hasBloodyBoots = true;
-
-
-    private int hp = 100;
 
     public void ToggleMoving(bool shouldMove)
     {
@@ -60,9 +51,14 @@ public class PlayerCharacterController : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
-        hp -= damageAmount;
+        Hp -= damageAmount;
         onTakeDamageEvent.Invoke(hp);
-        onTakeDamageEventAction.Invoke(hp);
+    }
+
+    [ContextMenu("Take Damage Test")]
+    private void TakeDamageTesting()
+    {
+        TakeDamage(10);
     }
 
     private void Start()
@@ -70,10 +66,6 @@ public class PlayerCharacterController : MonoBehaviour
         SetMudAreaCost();
         ToggleMoving(true);
         SetDestination(pathWaypoints[0]);
-        // if (waypoint)
-        // {
-        //     SetDestination(waypoint);
-        // }
     }
 
     private void SetMudAreaCost()
@@ -84,17 +76,8 @@ public class PlayerCharacterController : MonoBehaviour
         }
     }
 
-    [ContextMenu("Take Damage Test")]
-    private void TakeDamageTesting()
-    {
-        TakeDamage(10);
-    }
-
-
     private void Update()
     {
-        if (animator)
-            animator.SetFloat("Speed", (int)navMeshAgent.velocity.magnitude);
         if (isMoving && !navMeshAgent.isStopped && navMeshAgent.remainingDistance <= 0.1f)
         {
             currentWaypointIndex++;
@@ -103,11 +86,5 @@ public class PlayerCharacterController : MonoBehaviour
             SetDestination(pathWaypoints[currentWaypointIndex]);
         }
     }
-
-    private void PlayFootStepSound()
-    {
-
-    }
-
 
 }

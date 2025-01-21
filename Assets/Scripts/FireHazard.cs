@@ -11,15 +11,14 @@ public class FireHazard : MonoBehaviour
     [SerializeField]
     private UnityEvent<FireEnteredEventArgs> onCharacterEntered = new UnityEvent<FireEnteredEventArgs>();
 
-    // public void SetScriptableData(FireHazardScriptableObject fireHazardScriptableObject)
-    // {
-    //     fireHazardData = fireHazardScriptableObject;
-    // }
-    // private void Start()
-    // { 
-    //     if(onCharacterEnteredAction != null)
-    //        onCharacterEntered.AddListener(onCharacterEnteredAction);
-    // }
+    public void SetScriptableData(FireHazardScriptableObject fireHazardScriptableObject)
+    {
+        fireHazardData = fireHazardScriptableObject;
+    }
+    private void Start()
+    {
+        onCharacterEntered.AddListener(onCharacterEnteredAction);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -30,7 +29,7 @@ public class FireHazard : MonoBehaviour
             {
                 damageDealt = fireHazardData.GetRandomFireDamage(),
                 targetCharacterController = other.GetComponent<PlayerCharacterController>()
-            }; ; 
+            }; 
             onCharacterEntered?.Invoke(fireEnteredEventArgs);
             onCharacterEnteredAction.Invoke(fireEnteredEventArgs);
         }

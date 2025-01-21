@@ -24,6 +24,6 @@ public class GameManager : MonoBehaviour
 
     public void HandleCharacterEnteredFire(FireEnteredEventArgs args)
     {
-        //args.targetCharacterController.TakeDamage(args.damageDealt);
+        args.targetCharacterController.TakeDamage(args.damageDealt);
     }
 }
