@@ -1217,7 +1217,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 200102853270262559, guid: 10b84328d55f41e479c14eb029c620ce, type: 3}
   m_PrefabInstance: {fileID: 5669534982723463085}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 992949598}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3411a4ff3f3c9a4d9272a2684306262, type: 3}
@@ -1663,6 +1663,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 408190490932234434, guid: 24dc1d81273762b409686721deac9856, type: 3}
   m_PrefabInstance: {fileID: 1009484952631234864}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &992949598 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5488757064684000571, guid: 10b84328d55f41e479c14eb029c620ce, type: 3}
+  m_PrefabInstance: {fileID: 5669534982723463085}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &992949600
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992949598}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5, y: 2.5, z: 1}
+  m_Center: {x: 0, y: 1.5, z: 0}
+--- !u!54 &992949601
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992949598}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &1200830788 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 719649515975912571, guid: 24dc1d81273762b409686721deac9856, type: 3}
@@ -1696,7 +1749,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 2.5, y: 2.5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1733,7 +1786,7 @@ MonoBehaviour:
   playerCharacterController: {fileID: 697298001}
   fireHazardScriptableObjects:
   - {fileID: 11400000, guid: e297208067f0e144bae093d040b6a174, type: 2}
-  - {fileID: 11400000, guid: 34cd5c5c8b73a5a4aa1f8e71402a9b19, type: 2}
+  - {fileID: 11400000, guid: e297208067f0e144bae093d040b6a174, type: 2}
   - {fileID: 11400000, guid: 6f0a28d033d7dbf4ea1bc1c970323bc7, type: 2}
   fireHazards:
   - {fileID: 911887286}
@@ -2200,6 +2253,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 200102853270262559, guid: 10b84328d55f41e479c14eb029c620ce, type: 3}
+      propertyPath: playerGO
+      value: 
+      objectReference: {fileID: 992949598}
+    - target: {fileID: 200102853270262559, guid: 10b84328d55f41e479c14eb029c620ce, type: 3}
       propertyPath: uiManager
       value: 
       objectReference: {fileID: 1377615167}
@@ -2367,15 +2424,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5488757064684000571, guid: 10b84328d55f41e479c14eb029c620ce, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6337288118191843600, guid: 10b84328d55f41e479c14eb029c620ce, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 53850187001759749, guid: 10b84328d55f41e479c14eb029c620ce, type: 3}
+    - {fileID: 7717558490376241202, guid: 10b84328d55f41e479c14eb029c620ce, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5488757064684000571, guid: 10b84328d55f41e479c14eb029c620ce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 992949601}
+    - targetCorrespondingSourceObject: {fileID: 5488757064684000571, guid: 10b84328d55f41e479c14eb029c620ce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 992949600}
     - targetCorrespondingSourceObject: {fileID: 6337288118191843600, guid: 10b84328d55f41e479c14eb029c620ce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1337082556}

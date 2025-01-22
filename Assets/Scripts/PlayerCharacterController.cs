@@ -16,6 +16,7 @@ public class PlayerCharacterController : MonoBehaviour
     [Header("Navigation")]
     [SerializeField] private NavMeshAgent navMeshAgent;
     [SerializeField] private Transform[] pathWaypoints;
+    [SerializeField] private GameObject playerGO;
 
     public int Hp
     {
@@ -54,12 +55,19 @@ public class PlayerCharacterController : MonoBehaviour
         hp -= damageAmount;
         onTakeDamageEvent.Invoke(hp);
         onTakeDamageEventAction.Invoke(hp);
+        if (hp <= 0)
+            CharacterDie();
     }
 
     [ContextMenu("Take Damage Test")]
     private void TakeDamageTesting()
     {
         TakeDamage(10);
+    }
+
+    private void CharacterDie()
+    {
+        playerGO.SetActive(false);
     }
 
     private void Start()
