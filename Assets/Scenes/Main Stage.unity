@@ -254,7 +254,7 @@ GameObject:
   m_Component:
   - component: {fileID: 132953927}
   m_Layer: 0
-  m_Name: Audio Manager
+  m_Name: Audio Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2289,6 +2289,10 @@ PrefabInstance:
       propertyPath: onTakeDamageEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1377615167}
+    - target: {fileID: 1261015592868664827, guid: 10b84328d55f41e479c14eb029c620ce, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: efe28a1830c5cec418d46c811f28a734, type: 2}
     - target: {fileID: 2103817114318782507, guid: 10b84328d55f41e479c14eb029c620ce, type: 3}
       propertyPath: m_Speed
       value: 6
@@ -2353,9 +2357,9 @@ SceneRoots:
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
+  - {fileID: 285822818}
   - {fileID: 140441356}
   - {fileID: 1773151871}
   - {fileID: 2028862548}
-  - {fileID: 285822818}
   - {fileID: 1377615166}
   - {fileID: 132953927}

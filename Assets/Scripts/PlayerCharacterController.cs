@@ -27,6 +27,7 @@ public class PlayerCharacterController : MonoBehaviour
         set => hp = value;
     }
     private int hp = 100;
+    private int startingHP;
     public int CurrentWaypointIndex
     {
         get => currentWaypointIndex;
@@ -57,8 +58,11 @@ public class PlayerCharacterController : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         hp -= damageAmount;
+        float hpPercentLeft = (float) hp / startingHP;
+        animator.SetLayerWeight(1, weight:(1 - hpPercentLeft));
         onTakeDamageEvent.Invoke(hp);
         onTakeDamageEventAction.Invoke(hp);
+
         if (hp <= 0)
             CharacterDie();
     }
@@ -76,6 +80,7 @@ public class PlayerCharacterController : MonoBehaviour
 
     private void Start()
     {
+        startingHP = hp;
         onTakeDamageEvent.AddListener(onTakeDamageEventAction);  //add the unity action into the unity event list
         SetMudAreaCost();
         ToggleMoving(true);
@@ -99,6 +104,15 @@ public class PlayerCharacterController : MonoBehaviour
         }
         if (animator)
             animator.SetFloat(name: "Speed", (int)navMeshAgent.velocity.magnitude);
+
+        
+
     }
+
+    private void WalkSoundEffect()
+    {
+        
+    }
+
 
 }
