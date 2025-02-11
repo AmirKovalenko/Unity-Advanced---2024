@@ -10,7 +10,7 @@ using UnityEngine.Serialization;
 
 public class PlayerCharacterController : MonoBehaviour
 {
-    private static readonly int SpeedAnimatorHash = Animator.StringToHash(name: "Speed");
+    private static readonly int SpeedAnimatorHash = Animator.StringToHash(name:"Speed");
 
     public event UnityAction<int> onTakeDamageEventAction;
     public UnityEvent<int> onTakeDamageEvent;
