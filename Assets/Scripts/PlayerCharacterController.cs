@@ -19,6 +19,7 @@ public class PlayerCharacterController : MonoBehaviour
     [SerializeField] private NavMeshAgent navMeshAgent;
     [SerializeField] private Transform[] pathWaypoints;
     [SerializeField] private GameObject playerGO; //used as a ref of player to disable when hp reaches 0
+    [SerializeField] private ScenesManager scenesManager;
 
     [SerializeField] Animator animator;
     public int Hp
@@ -76,6 +77,8 @@ public class PlayerCharacterController : MonoBehaviour
     private void CharacterDie()
     {
         playerGO.SetActive(false);
+        //mby add a delay between the 2
+        scenesManager.DefeatScreen();
     }
 
     private void Start()
