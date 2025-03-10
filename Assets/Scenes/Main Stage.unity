@@ -3831,6 +3831,7 @@ GameObject:
   - component: {fileID: 1377615168}
   - component: {fileID: 1377615169}
   - component: {fileID: 1377615170}
+  - component: {fileID: 1377615171}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -3888,7 +3889,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpText: {fileID: 1708986996}
   playerRef: {fileID: 697298001}
-  audioScreenGO: {fileID: 737463089}
 --- !u!114 &1377615168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3928,8 +3928,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c9115313e82f044aa93c40029026c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  optionsManager: {fileID: 1377615171}
   pauseMenu: {fileID: 1141208466}
   pauseButton: {fileID: 11531492}
+--- !u!114 &1377615171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377615164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bdd66a0cdbc3a74a9da6b6fd1e0a60c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioScreenGO: {fileID: 737463089}
+  isOptionsOpen: 0
 --- !u!1 &1514621298
 GameObject:
   m_ObjectHideFlags: 0
@@ -4894,9 +4909,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1377615167}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: ToggleAudioSettings
+      - m_Target: {fileID: 1377615171}
+        m_TargetAssemblyTypeName: OptionsManager, Assembly-CSharp
+        m_MethodName: ToggleOptions
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5685,6 +5700,14 @@ PrefabInstance:
       propertyPath: scenesManager
       value: 
       objectReference: {fileID: 1377615169}
+    - target: {fileID: 200102853270262559, guid: 10b84328d55f41e479c14eb029c620ce, type: 3}
+      propertyPath: unityActions.m_Id
+      value: 493d2391-d843-4f53-91fd-a226a24d3018
+      objectReference: {fileID: 0}
+    - target: {fileID: 200102853270262559, guid: 10b84328d55f41e479c14eb029c620ce, type: 3}
+      propertyPath: unityActions.m_Name
+      value: Unity Actions
+      objectReference: {fileID: 0}
     - target: {fileID: 200102853270262559, guid: 10b84328d55f41e479c14eb029c620ce, type: 3}
       propertyPath: 'pathWaypoints.Array.data[0]'
       value: 

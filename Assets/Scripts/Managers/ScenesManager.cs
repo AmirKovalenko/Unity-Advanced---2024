@@ -15,19 +15,20 @@ public class ScenesManager : MonoBehaviour
     public void EnterMainStage()
     {
         //sceneIndex = 1;
-        loadSceneAsyncOperation = SceneManager.LoadSceneAsync("Main Stage", LoadSceneMode.Additive);
+        loadSceneAsyncOperation = SceneManager.LoadSceneAsync("Main Stage");
+        Time.timeScale = 1;
     }
 
     public void VictoryScreen()
     {
         //sceneIndex = 2;
-        loadSceneAsyncOperation = SceneManager.LoadSceneAsync("Victory Screen");
+        loadSceneAsyncOperation = SceneManager.LoadSceneAsync("Victory Screen", LoadSceneMode.Additive);
     }
 
     public void DefeatScreen()
     {
         //sceneIndex = 3;
-        loadSceneAsyncOperation = SceneManager.LoadSceneAsync("Defeat Screen");
+        loadSceneAsyncOperation = SceneManager.LoadSceneAsync("Defeat Screen", LoadSceneMode.Additive);
     }
 
 

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PauseManager : MonoBehaviour
 {
+    [SerializeField] OptionsManager optionsManager; //used to switch the bool of audio settings
     private bool isGamePaused = false;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject pauseButton;
@@ -23,6 +24,9 @@ public class PauseManager : MonoBehaviour
             Time.timeScale = 1;
             pauseMenu.SetActive(false);
             pauseButton.SetActive(true);
+
+            if (optionsManager.isOptionsOpen) //closes the audio screen 
+                optionsManager.ToggleOptions();
         }
     }
 }

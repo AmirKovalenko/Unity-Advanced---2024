@@ -1423,9 +1423,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1801102378}
-        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
-        m_MethodName: ToggleSoundSettings
+      - m_Target: {fileID: 1801102381}
+        m_TargetAssemblyTypeName: OptionsManager, Assembly-CSharp
+        m_MethodName: ToggleOptions
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1556,8 +1556,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1801102378}
-        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+      - m_Target: {fileID: 1801102377}
+        m_TargetAssemblyTypeName: ScenesManager, Assembly-CSharp
         m_MethodName: EnterMainStage
         m_Mode: 1
         m_Arguments:
@@ -2622,9 +2622,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1801102379}
-  - component: {fileID: 1801102378}
   - component: {fileID: 1801102377}
   - component: {fileID: 1801102380}
+  - component: {fileID: 1801102381}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -2644,20 +2644,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e6436e83e2a1a4fb9cf9107c696eae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1801102378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1801102376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57524b717a9927c409578f71244edea7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneManager: {fileID: 1801102377}
-  optionsScreen: {fileID: 95162887}
 --- !u!4 &1801102379
 Transform:
   m_ObjectHideFlags: 0
@@ -2688,6 +2674,19 @@ MonoBehaviour:
   mainMixer: {fileID: 24300002, guid: 950e35bc642617f4cb8dccf591eddf52, type: 2}
   SFXMixer: {fileID: -3936573996024792412, guid: 950e35bc642617f4cb8dccf591eddf52, type: 2}
   musicMixer: {fileID: 1260765803015581530, guid: 950e35bc642617f4cb8dccf591eddf52, type: 2}
+--- !u!114 &1801102381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801102376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bdd66a0cdbc3a74a9da6b6fd1e0a60c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioScreenGO: {fileID: 95162887}
 --- !u!1 &1810896667
 GameObject:
   m_ObjectHideFlags: 0

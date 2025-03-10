@@ -15,6 +15,10 @@ public class PlayerCharacterController : MonoBehaviour
     public event UnityAction<int> onTakeDamageEventAction;
     public UnityEvent<int> onTakeDamageEvent;
 
+    //[Header("Input")]
+    //[SerializeField] private UnityAction unityActions;
+
+
     [Header("Navigation")]
     [SerializeField] private NavMeshAgent navMeshAgent;
     [SerializeField] private Transform[] pathWaypoints;
@@ -106,16 +110,19 @@ public class PlayerCharacterController : MonoBehaviour
             SetDestination(pathWaypoints[currentWaypointIndex]);
         }
         if (animator)
-            animator.SetFloat(name: "Speed", (int)navMeshAgent.velocity.magnitude);
+            animator.SetFloat(name:"Speed", (int)navMeshAgent.velocity.magnitude);
 
         
-
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            //Raycast to ground and move
+            
+        }
     }
 
     private void WalkSoundEffect()
     {
         
     }
-
 
 }
